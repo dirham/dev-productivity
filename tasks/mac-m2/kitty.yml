@@ -1,0 +1,37 @@
+---
+- name: Install Kitty terminal and configure oh my zsh
+  hosts: localhost
+  become: yes
+  vars:
+    kitty_version: "0.23.2"  # Specify the version you want to install
+    zsh_plugins:
+      - { name: "zsh-autosuggestions", url: "https://github.com/zsh-users/zsh-autosuggestions", dest: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions" }
+      - { name: "zsh-syntax-highlighting", url: "https://github.com/zsh-users/zsh-syntax-highlighting", dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" }
+  tasks:
+    - name: Download Kitty terminal binary
+      get_url:
+        url: "https://github.com/kovidgoyal/kitty/releases/download/v{{ kitty_version }}/kitty-{{ kitty_version }}-x86_64.dmg"
+        dest: "/tmp/kitty-{{ kitty_version }}.dmg"
+
+    - name: Mount the Kitty disk image
+      command: "hdiutil attach /tmp/kitty-{{ kitty_version }}.dmg"
+
+    - name: Install Kitty terminal
+      command: "cp -R /Volumes/Kitty/Kitty.app /Applications/"
+
+    - name: Unmount the Kitty disk image
+      command: "hdiutil detach /Volumes/Kitty"
+
+    - name: Clean up temporary files
+      file:
+        path: "/tmp/kitty-{{ kitty_version }}.dmg"
+        state: absent
+
+    - name: Install Oh My Zsh
+      shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    - name: Clone Zsh plugins
+      git:
+        repo: "{{ item.url }}"
+        dest: "{{ item.dest }}"
+      loop: "{{ zsh_plugins }}"

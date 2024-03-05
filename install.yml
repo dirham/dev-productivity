@@ -1,0 +1,6 @@
+---
+- name: Install Kitty terminal on Mac and configure Oh My Zsh
+  hosts: localhost
+  become: yes
+  tasks:
+    - include_tasks: tasks/mac-m2/kitty.yaml

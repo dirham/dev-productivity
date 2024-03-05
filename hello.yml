@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  become: true
+  tasks:
+    - name: Detect OS and echo
+      debug:
+        msg: "This is a \"{{ ansible_facts['os_family'] }}\" system."
+
