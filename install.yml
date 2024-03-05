@@ -11,6 +11,10 @@
       include_tasks: tasks/mac-m2/terminal.yml
       when: ansible_os_family == 'Darwin'
 
+    - name: "Include oh-my-zsh"
+      include_tasks: tasks/mac-m2/ohmyzsh.yml
+      when: ansible_os_family == 'Darwin'
+
     # Debian specific tasks
     - name: "Terminal config for Debian"
       include_tasks: tasks/debian/terminal.yml
@@ -18,5 +22,4 @@
 
     # common tasks
     - name: "Install neovim kickstart"
-      include_tasks: tasks/neovim-kickstart.yml
-    
+      include_tasks: tasks/neovim-kickstart.yml 
