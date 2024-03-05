@@ -1,5 +1,5 @@
 ### Dev Productivity with Ansible
-Automate my dev tools installation with Ansible, for mac I use homebrew for package manager
+Automate my dev tools installation with Ansible, for mac I use homebrew for package manager, will add more playbook for debian when I choose to using linux again :')
 #### Todo
 - Add more playbook for debian W-_-W
 
