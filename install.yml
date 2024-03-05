@@ -1,6 +1,22 @@
----
-- name: Install Kitty terminal on Mac and configure Oh My Zsh
+- name: Install and configuring Dev tools...
   hosts: localhost
   become: yes
   tasks:
-    - include_tasks: tasks/mac-m2/kitty.yaml
+    # mac m2 specific tasks
+    - name: "Install mac core tools"
+      include_tasks: tasks/mac-m2/core.yml
+      when: ansible_os_family == 'Darwin'
+    
+    - name: "Terminal config for Mac OS X"
+      include_tasks: tasks/mac-m2/terminal.yml
+      when: ansible_os_family == 'Darwin'
+
+    # Debian specific tasks
+    - name: "Terminal config for Debian"
+      include_tasks: tasks/debian/terminal.yml
+      when: ansible_os_family == 'Debian'
+
+    # common tasks
+    - name: "Install neovim kickstart"
+      include_tasks: tasks/neovim-kickstart.yml
+    

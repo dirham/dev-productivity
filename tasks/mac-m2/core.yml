@@ -1,0 +1,54 @@
+- name: Install core tools
+  homebrew:
+    name: [curl, make, gcc, git]
+    state: present
+
+- name: Install Go
+  homebrew:
+    name: go
+    state: present
+
+- name: Install Python
+  homebrew:
+    name: python
+    state: present
+
+- name: Install Python pip
+  homebrew:
+    name: python-pip
+    state: present
+
+- name: Install Nodejs
+  homebrew:
+    name: node
+    state: present
+
+- name: Install Neovim
+  homebrew:
+    name: neovim
+    state: present
+
+- name: Install ripgrep
+  homebrew:
+    name: ripgrep
+    state: present
+
+- name: Install fzf
+  homebrew:
+    name: fzf
+    state: present
+
+- name: Install Docker
+  homebrew:
+    name: docker
+    state: present
+
+- name: Install tmux
+  homebrew:
+    name: tmux
+    state: present
+
+- name: Install slack
+  homebrew:
+    name: slack
+    state: present

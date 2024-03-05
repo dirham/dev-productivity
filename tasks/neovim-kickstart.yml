@@ -1,0 +1,4 @@
+- name: Clone kickstart.nvim repository and install
+  git:
+    repo: https://github.com/nvim-lua/kickstart.nvim.git
+    dest: "{{ lookup('env', 'XDG_CONFIG_HOME') | default('~/.config') }}/nvim"

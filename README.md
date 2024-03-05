@@ -1,21 +1,23 @@
 ### Dev Productivity with Ansible
-
-#### Requirements:
-- Ansible installed
+Automate my dev tools installation with Ansible, for mac I use homebrew for package manager
+#### Todo
+- Add more playbook for debian W-_-W
 
 #### Contains:
 - [x] Kitty 
 - [x] Oh-My-Zsh
-- [ ] Docker
-- [ ] Nvim 
-- [ ] PHP 
-- [ ] Go 
-- [ ] Python 
-- [ ] Slack
+- [x] Docker
+- [x] Nvim 
+- [ ] PHP (probably not needed 😈)
+- [x] Go 
+- [x] Python 
+- [x] Slack
+- [x] NodeJs 
 
 #### How to use
-You need to have Ansibel installed after that you can run this with this command to install dev tools you need.
-```bash
-ansible-playbook -K install.yml
-```
-Done.
+#### On Mac Os
+- make sure the script executable with this command `chmod +x mac_dependencies.sh` to install homebrew and ansible.
+- run the script `mac_dependencies.sh` to install homebrew and ansible
+- run the ansible playbook `ansible-playbook -K install.yml`
+#### On Debian
+-
