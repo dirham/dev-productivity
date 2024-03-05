@@ -4,11 +4,11 @@
 - Ansible installed
 
 #### Contains:
-- Kitty [x]
-- Oh-My-Zsh [x]
-- Docker [ ]
-- Nvim [ ]
-- PHP [ ]
-- Go [ ]
-- Python [ ]
-- Slack [ ]
+- [x] Kitty 
+- [x] Oh-My-Zsh
+- [ ] Docker
+- [ ] Nvim 
+- [ ] PHP 
+- [ ] Go 
+- [ ] Python 
+- [ ] Slack
