@@ -52,3 +52,8 @@
   homebrew:
     name: slack
     state: present
+
+- name: Install Telegram Desktop
+  homebrew:
+    name: cask/telegram
+    state: present
